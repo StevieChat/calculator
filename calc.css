@@ -1,0 +1,12 @@
+body, html{
+    height: 100%;
+    display: grid;
+    background-color: #262F3D;
+}
+
+#mainDiv{
+    height: 500px;
+    width: 400px;
+    margin: auto;
+    background-color: #459FC5;
+}
