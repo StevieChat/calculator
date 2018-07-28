@@ -7,16 +7,28 @@ operatorSection.addEventListener('click', setOperator, false);
 var equals = document.querySelector('.enter');
 equals.addEventListener('click', calculate, false);
 
+var clear = document.querySelector('.clear');
+clear.addEventListener('click', reset, false);
+
 var results = document.querySelector('#results');
 
-var number, numberTwo, operator;
+var number = "";
+var numberTwo;
+var operator;
+var amount;
 
 function display(e){
     if(e.target.classList.contains('number')){
-        if(number){
+        if(amount || operator){
             numberTwo = number;
+            number = "";
         }
-        number = e.target.textContent;
+        if(number != "" || amount){
+            number += e.target.textContent;
+        }else {
+            number = e.target.textContent;
+        }
+
         results.textContent = number;
     }
 }
@@ -34,19 +46,39 @@ function setOperator(e){
 }
 
 function calculate(e){
-    operate(operator, Number(number), Number(numberTwo));
+    if(number && numberTwo){
+        if(amount || operator == "divide"){
+            operate(operator, Number(numberTwo), Number(number));
+        }else{
+            operate(operator, Number(number), Number(numberTwo));
+        }
+    } 
+}
+
+function reset(e){
+    numberTwo = undefined;
+    number = "";
+    operator = undefined;
+    amount = undefined;
+    results.textContent = "";
 }
 
 function operate(operator, x, y){
     if(operator === "add"){
-        results.textContent = add(x,y);
+        amount = add(x,y);
+        results.textContent = amount;
     }else if(operator === "subtract"){
-        results.textContent = subtract(x,y);
+        amount = subtract(x,y);
+        results.textContent = amount;
     }else if(operator === "multiply"){
-        results.textContent = multiply(x,y);
+        amount = multiply(x,y);
+        results.textContent = amount;
     }else{
-        results.textContent = divide(x,y);
-    }
+        amount = divide(x,y);
+        results.textContent = amount;
+    } 
+    number = amount;
+    operator = undefined;
 }
 
 function add(x,y){
@@ -63,4 +95,11 @@ function multiply(x,y){
 
 function divide(x,y){
     return x/y;
+}
+
+function debug(){
+    console.log("Number: " + number);
+    console.log("Number Two: " + numberTwo);
+    console.log("Operator " + operator);
+    console.log("Amount " + amount);
 }
