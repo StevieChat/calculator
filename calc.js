@@ -4,14 +4,20 @@ numberSection.addEventListener('click', display, false);
 var operatorSection = document.querySelector('.operatorSection');
 operatorSection.addEventListener('click', setOperator, false);
 
+var equals = document.querySelector('.enter');
+equals.addEventListener('click', calculate, false);
+
 var results = document.querySelector('#results');
 
-var output, operator;
+var number, numberTwo, operator;
 
 function display(e){
     if(e.target.classList.contains('number')){
-        output = e.target.textContent;
-        results.textContent = output;
+        if(number){
+            numberTwo = number;
+        }
+        number = e.target.textContent;
+        results.textContent = number;
     }
 }
 
@@ -27,20 +33,24 @@ function setOperator(e){
     }
 }
 
+function calculate(e){
+    operate(operator, Number(number), Number(numberTwo));
+}
+
 function operate(operator, x, y){
     if(operator === "add"){
-        add(x,y);
+        results.textContent = add(x,y);
     }else if(operator === "subtract"){
-        subtract(x,y);
+        results.textContent = subtract(x,y);
     }else if(operator === "multiply"){
-        multiply(x,y);
+        results.textContent = multiply(x,y);
     }else{
-        divide(x,y);
+        results.textContent = divide(x,y);
     }
 }
 
 function add(x,y){
-    return x*y;
+     return x+y;
 }
 
 function subtract(x,y){
