@@ -27,6 +27,8 @@ td:hover{
 
 td:active{
     border: 5px solid gray;
+    background-color: #262F3D;
+    color: white;
 }
 
 .resultsPane{
@@ -43,6 +45,7 @@ td:active{
 .numberSection{
     height: 75%;
     width: 75%;
+    color: #262F3D;
 }
 
 .number{
@@ -59,8 +62,12 @@ td:active{
     background-color: #459FC5;
 }
 
-.darkBlue{
-    background-color: #262F3D
+.white{
+    background-color: white;
+}
+
+.orange{
+    background-color: #ff720E;
 }
 
 .floatLeft{
