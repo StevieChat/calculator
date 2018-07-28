@@ -16,20 +16,15 @@ var number = "";
 var numberTwo;
 var operator;
 var amount;
+var displayNum;
 
 function display(e){
     if(e.target.classList.contains('number')){
-        if(amount || operator){
-            numberTwo = number;
-            number = "";
-        }
-        if(number != "" || amount){
-            number += e.target.textContent;
-        }else {
+        if(operator){
             number = e.target.textContent;
+        }else{
+            number += e.target.textContent;
         }
-
-        results.textContent = number;
     }
 }
 
@@ -53,6 +48,7 @@ function calculate(e){
             operate(operator, Number(number), Number(numberTwo));
         }
     } 
+    operator = undefined;
 }
 
 function reset(e){
