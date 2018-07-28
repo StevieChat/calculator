@@ -48,7 +48,6 @@ td:active{
 .number{
     height: 25%;
     width: 33%;
-    background-color: #262F3D;
 }
 
 .operatorSection{
@@ -56,8 +55,12 @@ td:active{
     width: 25%;
 }
 
-.operator{
+.lightBlue{
     background-color: #459FC5;
+}
+
+.darkBlue{
+    background-color: #262F3D
 }
 
 .floatLeft{
