@@ -1,8 +1,8 @@
 body, html{
     height: 100%;
     display: grid;
-    background-color: #459FC5;
     color: white;
+    background-color: gray;
 }
 
 table{
@@ -34,11 +34,16 @@ td{
 .number{
     height: 25%;
     width: 33%;
+    background-color: #262F3D;
 }
 
 .operatorSection{
     height: 75%;
     width: 25%;
+}
+
+.operator{
+    background-color: #459FC5;
 }
 
 .floatLeft{
@@ -49,5 +54,4 @@ td{
     height: 500px;
     width: 350px;
     margin: auto;
-    background-color: #262F3D;
 }
