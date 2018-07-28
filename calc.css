@@ -5,6 +5,12 @@ body, html{
     background-color: gray;
 }
 
+#results{
+    text-align: right;
+    font-size: 200%;
+    padding: 10px;
+}
+
 table{
     width: 100%;
     height: 100%;
@@ -12,14 +18,22 @@ table{
 
 td{
     text-align: center;
-    border: 1px solid white;
     font-size: 200%;
+}
+
+td:hover{ 
+    font-weight: bold;
+}
+
+td:active{
+    border: 5px solid gray;
 }
 
 .resultsPane{
     height: 25%;
     width: 100%;
-    background-color: black;
+    background-color: #262F3D;
+    border: 1px solid white;
 }
 
 .container{
